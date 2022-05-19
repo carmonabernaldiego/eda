@@ -1,18 +1,24 @@
-package HashTable;
+package TreeSet;
 
-public class Persona {
+public class Articulos {
+    int id;
     String nombre;
-    int edad;
+    String descripcion;
+    double precio;
 
-    public Persona(String nombre, int edad) {
+    public Articulos(int id, String nombre, String descripcion, double precio) {
+        this.id = id;
         this.nombre = nombre;
-        this.edad = edad;
+        this.descripcion = descripcion;
+        this.precio = precio;
     }
 
     @Override
     public String toString() {
         return
-                "Nombre: " + nombre + "\n" +
-                "Edad:" + edad;
+                "\n\nId: " + id + "\n" +
+                        "Nombre:" + nombre + "\n" +
+                        "Descripcion:" + descripcion + "\n" +
+                        "Precio:" + precio;
     }
 }
