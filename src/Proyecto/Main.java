@@ -95,17 +95,29 @@ public class Main {
   }
 
   public static void buscar() {
-    String id;
+    String id, elementoHashTable;
 
     //SE PIDEN LOS DATOS DEL USUARIO A BUSCAR
     id = JOptionPane.showInputDialog("Ingrese ID de Registro: ");
-    if (hash.get(id) != null) {
+
+    //if (hash.get(id) != null) {
       if(arbol.contains(hash.get(id) + "")) {
-        JOptionPane.showMessageDialog(null, "¡Usuario Encontrado!");
+        elementoHashTable = hash.get(id).toString();
+
+        Iterator<String> i = arbol.iterator();
+
+        while (i.hasNext()) {
+          String elementoTreeSet = i.next();
+          if(elementoTreeSet.equals(elementoHashTable)) {
+            JOptionPane.showMessageDialog(null, "¡Usuario Encontrado!\n\n" + elementoTreeSet);
+          }
+        }
+      }else {
+        JOptionPane.showMessageDialog(null, "¡Usuario No Encontrado!");
       }
-    } else {
-      JOptionPane.showMessageDialog(null, "¡Usuario No Encontrado!");
-    }
+    //} else {
+      //JOptionPane.showMessageDialog(null, "¡Usuario No Encontrado!");
+    //}
   }
 
   public static void remplazar() {
