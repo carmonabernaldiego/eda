@@ -1,3 +1,5 @@
+package Proyecto;
+
 public class Usuario {
     private String usuario;
     private String contraseña;
@@ -10,6 +12,6 @@ public class Usuario {
     @Override
     public String toString() {
         return  "Usuario: "    + usuario + "\n" +
-                "Contraseña: " +contraseña;
+                "Contraseña: " + contraseña;
     }
 }

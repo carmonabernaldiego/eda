@@ -1,19 +1,10 @@
 package TreeSet;
 
         import java.util.Iterator;
-        import java.util.Random;
         import java.util.TreeSet;
 
 public class MainArticulos {
     public static void main(String[] args) {
-        int min = 1000;
-        int max = 9999;
-
-        Random random = new Random();
-
-        int value = random.nextInt(max + min) + min;
-        System.out.println(value);
-
         TreeSet<Integer> arbol = new TreeSet<Integer>();
 
         Articulos[] articulos = new Articulos[5];
@@ -39,7 +30,6 @@ public class MainArticulos {
             for (Articulos key : articulos) {
                 if (key.id == comparar) {
                     System.out.println(key.toString());
-
                 }
             }
         }
@@ -60,7 +50,6 @@ public class MainArticulos {
             for (Articulos key : articulos) {
                 if (key.id == comparar) {
                     System.out.println(key.toString());
-
                 }
             }
         }
