@@ -100,7 +100,7 @@ public class Main {
     //SE PIDEN LOS DATOS DEL USUARIO A BUSCAR
     id = JOptionPane.showInputDialog("Ingrese ID de Registro: ");
 
-    //if (hash.get(id) != null) {
+    if (hash.get(id) != null) {
       if(arbol.contains(hash.get(id) + "")) {
         elementoHashTable = hash.get(id).toString();
 
@@ -115,11 +115,11 @@ public class Main {
       }else {
         JOptionPane.showMessageDialog(null, "¡Usuario No Encontrado!");
       }
-    //} else {
-      //JOptionPane.showMessageDialog(null, "¡Usuario No Encontrado!");
-    //}
+    } else {
+      JOptionPane.showMessageDialog(null, "¡Usuario No Encontrado!");
+    }
   }
-
+  
   public static void remplazar() {
     String nombre, contraseña, id;
 
@@ -262,7 +262,7 @@ public class Main {
     usuariosPreCargados[48] = new Usuario("Hiraaam", "hiram12345");
     usuariosPreCargados[49] = new Usuario("IphoneRobado", "ayudanecesitomoney2");
 
-    for (int i = 0; i <v 50; i++) {
+    for (int i = 0; i < 50; i++) {
       arbol.add(usuariosPreCargados[i] + "");
       hash.put(iterador + "", usuariosPreCargados[i]);
       iterador++;
