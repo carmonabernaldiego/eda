@@ -209,7 +209,7 @@ public class Main {
   }
 
   public static void preCargarUsuarios() {
-    Usuario[] usuariosPreCargados = new Usuario[99];
+    Usuario[] usuariosPreCargados = new Usuario[50];
 
     usuariosPreCargados[0] = new Usuario("IZIPMexicanito", "pepapig23");
     usuariosPreCargados[1] = new Usuario("MrChaidez", "Victor132");
@@ -261,9 +261,8 @@ public class Main {
     usuariosPreCargados[47] = new Usuario("Gerardox", "gfa2sdw");
     usuariosPreCargados[48] = new Usuario("Hiraaam", "hiram12345");
     usuariosPreCargados[49] = new Usuario("IphoneRobado", "ayudanecesitomoney2");
-    usuariosPreCargados[50] = new Usuario("WebosRevueltos", "carnitaasada123");
 
-    for (int i = 0; i <= 50; i++) {
+    for (int i = 0; i <v 50; i++) {
       arbol.add(usuariosPreCargados[i] + "");
       hash.put(iterador + "", usuariosPreCargados[i]);
       iterador++;
