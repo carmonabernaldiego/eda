@@ -53,7 +53,7 @@ import javax.swing.*;
  */
 public class Main {
 
-  //SE CREA EL HASH Y EL ARBOL
+  //SE CREA EL HASH Y EL ARBOL|
   static int iterador = 213456;
   static Hashtable<String, Object> hash = new Hashtable<>();
   static TreeSet<String> arbol = new TreeSet<>();
@@ -119,7 +119,7 @@ public class Main {
       JOptionPane.showMessageDialog(null, "¡Usuario No Encontrado!");
     }
   }
-  
+
   public static void remplazar() {
     String nombre, contraseña, id;
 
