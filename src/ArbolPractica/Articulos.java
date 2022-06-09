@@ -1,4 +1,4 @@
-package TreeSet;
+package ArbolPractica;
 
 public class Articulos {
     int id;

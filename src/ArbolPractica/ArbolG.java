@@ -1,31 +1,31 @@
 package ArbolPractica;
 
-class Nodo {
-    private int dato;
-    private Nodo izquierda, derecha;
+class NodoG<T extends Comparable<T>> {
+    private T dato;
+    private NodoG izquierda, derecha;
 
-    public Nodo(int dato) {
+    public NodoG(T dato) {
         this.dato = dato;
         this.izquierda = this.derecha = null;
     }
 
-    public int getDato() {
+    public T getDato() {
         return dato;
     }
 
-    public Nodo getIzquierda() {
+    public NodoG getIzquierda() {
         return izquierda;
     }
 
-    public void setIzquierda(Nodo izquierda) {
+    public void setIzquierda(NodoG izquierda) {
         this.izquierda = izquierda;
     }
 
-    public Nodo getDerecha() {
+    public NodoG getDerecha() {
         return derecha;
     }
 
-    public void setDerecha(Nodo derecha) {
+    public void setDerecha(NodoG derecha) {
         this.derecha = derecha;
     }
 
@@ -34,22 +34,22 @@ class Nodo {
     }
 }
 
-public class Arbol {
-    private Nodo raiz;
+public class ArbolG<T extends Comparable<T>> {
+    private NodoG raiz;
 
-    public Arbol() {}
+    public ArbolG() {}
 
-    public boolean existe(int busqueda) {
+    public boolean existe(T busqueda) {
         return existe(this.raiz, busqueda);
     }
 
-    private boolean existe(Nodo n, int busqueda) {
+    private boolean existe(NodoG n, T busqueda) {
         if (n == null) {
             return false;
         }
-        if (n.getDato() == busqueda) {
+        if (n.getDato().equals(busqueda)) {
             return true;
-        } else if (busqueda < n.getDato()) {
+        } else if (busqueda.compareTo((T) n.getDato()) < 0) {
             return existe(n.getIzquierda(), busqueda);
         } else {
             return existe(n.getDerecha(), busqueda);
@@ -57,31 +57,31 @@ public class Arbol {
 
     }
 
-    public void insertar(int dato) {
+    public void insertar(T dato) {
         if (this.raiz == null) {
-            this.raiz = new Nodo(dato);
+            this.raiz = new NodoG(dato);
         } else {
             this.insertar(this.raiz, dato);
         }
     }
 
-    private void insertar(Nodo padre, int dato) {
-        if (dato > padre.getDato()) {
+    private void insertar(NodoG padre, T dato) {
+        if (dato.compareTo((T) padre.getDato()) > 0) {
             if (padre.getDerecha() == null) {
-                padre.setDerecha(new Nodo(dato));
+                padre.setDerecha(new NodoG(dato));
             } else {
                 this.insertar(padre.getDerecha(), dato);
             }
         } else {
             if (padre.getIzquierda() == null) {
-                padre.setIzquierda(new Nodo(dato));
+                padre.setIzquierda(new NodoG(dato));
             } else {
                 this.insertar(padre.getIzquierda(), dato);
             }
         }
     }
 
-    private void preorden(Nodo n) {
+    private void preorden(NodoG n) {
         if (n != null) {
             n.imprimirDato();
             preorden(n.getIzquierda());
@@ -89,7 +89,7 @@ public class Arbol {
         }
     }
 
-    private void inorden(Nodo n) {
+    private void inorden(NodoG n) {
         if (n != null) {
             inorden(n.getIzquierda());
             n.imprimirDato();
@@ -97,7 +97,7 @@ public class Arbol {
         }
     }
 
-    private void postorden(Nodo n) {
+    private void postorden(NodoG n) {
         if (n != null) {
             postorden(n.getIzquierda());
             postorden(n.getDerecha());
