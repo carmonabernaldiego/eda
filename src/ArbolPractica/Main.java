@@ -4,13 +4,13 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] argumentos) {
-        ArbolG<String> arbol = new ArbolG<>();
+        Arbol arbol = new Arbol();
 
-        arbol.insertar("Diego");
-        arbol.insertar("Carlos");
-        arbol.insertar("Keyla");
-        arbol.insertar("Toledo");
-        arbol.insertar("Larissa");
+        arbol.insertar(8);
+        arbol.insertar(5);
+        arbol.insertar(15);
+        arbol.insertar(3);
+        arbol.insertar(4);
 
         int opc = 0;
 
@@ -22,16 +22,17 @@ public class Main {
                     "1.- Agregar Dato.\n" +
                     "2.- Mostrar Arbol.\n" +
                     "3.- Buscar Dato.\n" +
-                    "4.- Salir");
+                    "4.- Eliminar Dato.\n" +
+                    "5.- Salir");
 
             opc = sc.nextInt();
 
             switch (opc){
                 case 1 ->{
-                    String dato;
+                    int dato;
 
                     System.out.println("\nIngrese dato: ");
-                    dato = sc2.nextLine();
+                    dato = sc2.nextInt();
 
                     arbol.insertar(dato);
                 }
@@ -46,10 +47,10 @@ public class Main {
                     arbol.preorden();
                 }
                 case 3 ->{
-                    String dato;
+                    int dato;
 
                     System.out.println("\nIngrese dato a buscar: ");
-                    dato = sc2.nextLine();
+                    dato = sc2.nextInt();
 
                     System.out.println("\nBusqueda: ");
                     if (arbol.existe(dato)) {
@@ -59,9 +60,22 @@ public class Main {
                     }
                 }
                 case 4 -> {
+                    int dato;
+
+                    System.out.println("\nIngrese dato a eliminar: ");
+                    dato = sc2.nextInt();
+
+                    if (arbol.existe(dato)) {
+                        System.out.println("\nEliminar: ");
+                        arbol.eliminar(dato);
+                    } else {
+                        System.out.println("\n¡El dato NO existe!");
+                    }
+                }
+                case 5 -> {
                     System.out.println("Adios...");
                 }
             }
-        }while(opc != 4);
+        }while(opc != 5);
     }
 }

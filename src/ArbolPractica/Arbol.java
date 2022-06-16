@@ -13,6 +13,10 @@ class Nodo {
         return dato;
     }
 
+    public void setDato(int dato) {
+        this.dato = dato;
+    }
+
     public Nodo getIzquierda() {
         return izquierda;
     }
@@ -62,7 +66,7 @@ public class Arbol {
             this.raiz = new Nodo(dato);
         } else {
             this.insertar(this.raiz, dato);
-        }
+        } 
     }
 
     private void insertar(Nodo padre, int dato) {
@@ -79,6 +83,49 @@ public class Arbol {
                 this.insertar(padre.getIzquierda(), dato);
             }
         }
+    }
+
+    public void eliminar(int dato) {
+        eliminar(this.raiz, dato);
+    }
+    
+    private Nodo eliminar(Nodo padre, int dato) {
+        if(padre == null) return padre;
+
+        if(dato < padre.getDato()) {
+            padre.setIzquierda(eliminar(padre.getIzquierda(), dato));
+        } else if(dato > padre.getDato()) {
+            padre.setDerecha(eliminar(padre.getDerecha(), dato));
+        } else {
+            // Borrar nodo sin nodos hoja (nodos Padre)
+            if(padre.getIzquierda() == null && padre.getDerecha() == null) {
+                System.out.println("Borrando... " + dato);
+                return null;
+            } else if(padre.getIzquierda() == null) {
+                // nodo con un nodo (sin nodo izquierdo)
+                System.out.println("Borrando... " + dato);
+                return padre.getDerecha();
+            } else if(padre.getDerecha() == null) {
+                // nodo con un nodo (sin nodo derecho)
+                System.out.println("Borrando... " + dato);
+                return padre.getIzquierda();
+            } else {
+                // nodos con dos nodos
+                // busca el número mínimo en el subárbol derecho
+                int valorMinimo = valorMinimo(padre.getDerecha());
+                padre.setDato(valorMinimo);
+                padre.setDerecha(eliminar(padre.getDerecha(), valorMinimo));
+                System.out.println("Borrando... " + dato);
+            }
+        }
+        return padre;
+    }
+
+    private int valorMinimo(Nodo nodo) {
+        if(nodo.getIzquierda() != null) {
+            return valorMinimo(nodo.getIzquierda());
+        }
+        return nodo.getDato();
     }
 
     private void preorden(Nodo n) {
