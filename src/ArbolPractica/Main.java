@@ -6,11 +6,13 @@ public class Main {
     public static void main(String[] argumentos) {
         Arbol arbol = new Arbol();
 
+        arbol.insertar(50);
+        arbol.insertar(12);
         arbol.insertar(8);
-        arbol.insertar(5);
-        arbol.insertar(15);
-        arbol.insertar(3);
-        arbol.insertar(4);
+        arbol.insertar(45);
+        arbol.insertar(34);
+        arbol.insertar(78);
+        arbol.insertar(89);
 
         int opc = 0;
 
